@@ -57,6 +57,15 @@ Resources
 
 3. Create products-controller
 
+4. Create products-router
+
+5. Add new routes to server.js
+
+6. Test from Postman: 
+    http://localhost:3000/api/v1/products/getbycategory
+
+
+
 
 
 
