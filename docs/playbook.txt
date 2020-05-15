@@ -1,0 +1,63 @@
+VSCode pluggins:
+    VSCode icons
+    Rainbow Brackets
+    Prettier - Code formatter
+
+Resources
+    Building RESTful Api With Node.js, Express.Js And PostgreSQL the Right way
+        https://itnext.io/building-restful-api-with-node-js-express-js-and-postgresql-the-right-way-b2e718ad1c66
+
+    How To Setup An Express JS Server With Nodemon and Babel
+        https://medium.com/developer-circles-lusaka/how-to-setup-express-js-server-with-nodemon-and-babel-c3a17218c282
+
+1. Create proj
+    npm init
+
+2. Install dependencies
+    nodemon: Monitor changes
+    esm: import ES6 support
+    expressjs: Framework to build API's
+    PG— PG: To work with PostgreSQL
+    Body Parser: Parse incoming requests. To read from req.body property
+    Dotenv : loads environment variables from a .env file into process.env
+    CORS (Cross Origin Resource Sharing)    
+    babel watch — This is needed for development.
+
+3. Install dependencies
+
+    Dependencies:
+        npm install --save express pg body-parser dotenv cors
+
+    Dev dependencies:
+        npm install --save-dev babel-cli babel-preset-env babel-loader babel-core nodemon
+
+4. Create package.json start script
+    "scripts": {
+        "start": "nodemon server.js --exec babel-node --presets babel-preset-env"
+    },
+
+5. Create helpers
+
+6. Create controller app/controllers/calculator-controller.js
+
+7. Create route app/routes/calculator-routes.js
+
+8. Create server.js file
+
+9. Run npm start
+
+10. Calculator request to: http://localhost:3000/api/v1/calculate
+
+----------------------------- DB ACCESS -----------------------------------
+1. Create .env and env.js files
+
+2. Create db folder 
+    pool.js
+    query.js
+
+3. Create products-controller
+
+
+
+
+
