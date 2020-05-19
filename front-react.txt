@@ -1,0 +1,68 @@
+import React, { useEffect } from 'react';
+
+import './items-search-view.style.css';
+
+import ItemSearch from "../item-search/item-search.component";
+import ItemTableView from "../items-table-view/ItemsTableView.component";
+import { useState } from 'react';
+
+/*
+const categoriesData = [
+    {
+        id: 1,
+        name: "Sporting Goods",
+        products: [
+            {
+                id: 1,
+                name: "Football",
+                price: 49.99,
+                stock: 5
+            },
+            {
+                id: 2,
+                name: "Baseball",
+                price: 9.99,
+                stock: 0
+            }
+        ]
+    },
+    {
+        id: 2,
+        name: "Electronics",
+        products: [
+            {
+                id: 3,
+                name: "iPod Touch",
+                price: 99.99,
+                stock: 3
+            }
+        ]
+    }
+];
+*/
+
+const ItemsSearchView = () => {
+
+    const [categoriesData, setCategoriesData] = useState([]);
+
+    const loadProductsCategories = async () => {
+        const response = await fetch('http://localhost:3000/api/v1/products/getbycategory', { method: 'POST' });
+        const responseJSON = await response.json();
+        setCategoriesData(responseJSON.data);
+    }
+
+    useEffect(() => {
+        loadProductsCategories();
+    });
+
+
+    return (
+        <div className="items-search bordered-element">
+            <ItemSearch />
+            <hr />
+            <ItemTableView categories={categoriesData} />
+        </div>
+    );
+};
+
+export default ItemsSearchView;
