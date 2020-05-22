@@ -15,7 +15,7 @@ export const getProductsByCategory = async (request, response) => {
 
     if (!rows) {
         errorMessage.error = 'Error getting products';
-        return response.status(status.bad).errorMessage();
+        return response.status(status.bad).send(errorMessage);
     }
 
     const hashCategories = {};
@@ -49,4 +49,32 @@ export const getProductsByCategory = async (request, response) => {
     
     successMessage.data = categoriesData;
     return response.status(status.success).send(successMessage);
+}
+
+export const addProduct = async (request, response) => {
+
+    try{
+        const { id, name, price, category, stock } = request.body;
+
+        const addProductQuery = `
+            INSERT into products (id, name, price, category, stock)
+            VALUES ($1, $2, $3, $4, $5)
+        `;
+        const values = [id, name, price, category, stock];
+    
+        const { rowCount } = await dbQuery.query(addProductQuery, values);
+    
+        if (!rowCount) {
+            errorMessage.error = 'Error creating product';
+            return response.status(status.bad).send(errorMessage);
+        }
+    
+        successMessage.data = rowCount;
+        successMessage.message = `${rowCount} product created successfully`;
+        return response.status(status.success).send(successMessage);
+    }
+    catch(err){
+        errorMessage.error = `Error creating product: ${err}`;;
+        return response.status(status.bad).send(errorMessage);
+    }
 }

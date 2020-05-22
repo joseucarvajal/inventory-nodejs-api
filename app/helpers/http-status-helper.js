@@ -1,5 +1,5 @@
-export const successMessage = { status: 'success', data: {} };
-export const errorMessage = { status: 'error', data: {} };
+export const successMessage = { status: 'success', data: {}, message:'' };
+export const errorMessage = { status: 'error', data: {}, message: '' };
 export const status = {
   success: 200,
   error: 500,
