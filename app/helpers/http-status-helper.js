@@ -1,7 +1,7 @@
 export const successMessage = { status: 'success', data: {}, message:'' };
 export const errorMessage = { status: 'error', data: {}, message: '' };
-export const status = {
-  success: 200,
+export const httpStatus = {
+  OK: 200,
   error: 500,
   notfound: 404,
   unauthorized: 401,
